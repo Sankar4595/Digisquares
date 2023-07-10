@@ -6,9 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
+  title: 'DigiSquare',
   tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo2.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',
@@ -62,9 +62,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      // image: 'img/docusaurus-social-card.jpg',
+      image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'AppMaker',
+        logo: {
+          alt: "Digi Docs",
+          src: "https://www.digisquares.com/assets/Logo_notag%20(1).webp",
+          srcDark: "https://www.digisquares.com/assets/Logo_notag%20(1).webp",
+        },
         items: [
           
           {
@@ -94,19 +98,15 @@ const config = {
             label: 'Community',
           },
           {
-            to: 'https://github.com/facebook/docusaurus',
+            to: 'https://app.digisquares.com/login',
             target : '_blank',
             position: 'right',
             label: 'Sign In',
           },
-          // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            to: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            target : '_blank',
+            type : 'search',
             position: 'right'
-            
-          },
+          }
         ],
       },
       footer: {
@@ -157,6 +157,17 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      algolia: {
+        appId: "5UCDF4NN4T",
+        apiKey: "b00a247316eeeae7ffb240c954bda53c",
+        indexName: "DigiSquare",
+
+        // Optional: see doc section below
+        contextualSearch: true,
+        searchParameters: {     // Optional: Additional search parameters
+          facetFilters: ["type:content"]
+        },
       },
     }),
 };
