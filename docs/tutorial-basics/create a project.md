@@ -1,4 +1,5 @@
 ---
+title : "Create a Project"
 sidebar_position: 2
 ---
 
@@ -16,6 +17,11 @@ import ProjectBtn from '../../static/img/paddbtn.png';
 import SampleProject from '../../static/img/sampleProject.png';
 import Video from "../../src/components/Video.js";
 import demo from "../../src/components/demo.mp4";
+import SliderPage from "../../src/components/Slider/Slide.js";
+import FrontPage from '../../static/img/fr1.png';
+import FrontPage2 from '../../static/img/fr2.png';
+import BounceLoader from "react-spinners/BounceLoader";
+import ImageTooltip from "../../src/components/Slider/loading.js";
 
 
 # Create Your First Web App
@@ -24,48 +30,15 @@ Developing Web Application with Digisquares is fast.
 
 ## **Let's create a project**
 
-Log in to Digisquares. If you don't have an account yet, [signUp]('https://app.digisquares.com/register') for free.
+Log in to Digisquares. If you don't have an account yet, [Signup](https://app.digisquares.com/register) for free.
 
-<Video playing="true" url={demo} controls="true" loop="true" />
-
- 1. In Dashboard, Click a New Project Button
-
-<img id='Project' src={Project} usemap = "#workmap"
-onClick={()=>{driverObj(
-    {
-    steps: [
-    { element: '#newProject', popover: { title: 'Click New Project', description: 'Create a New Project', side: "right", align: 'start' }},
-    { element: '#Project1', popover: { title: 'Enter Project Details', description: '', side : 'right', align : 'start' }},
-    { element: '#ProjectName', popover: { title: 'Enter Project Name', description: '', side : 'right', align : 'center' }},
-    { element: '#ProjectType', popover: { title: 'Select a Project Type', description: '', side : 'right', align : 'center' }},
-    { element: '#ProjectDes', popover: { title: 'Enter Description', description: '', side : 'right', align : 'center' }},
-    { element: '#ProjectAppType', popover: { title: 'Select a Project App Type', description: '', side : 'right', align : 'center' }},
-    { element: '#ProjectStart', popover: { title: 'Select a Project Start Date', description: '', side : 'right', align : 'center' }},
-    { element: '#ProjectEnd', popover: { title: 'Select a Project End Date', description: '', side : 'right', align : 'center' }}
-    ]
-  })
-  }}/>
-
- 2. And Show the Form fill the form below steps
-<!--  
-    - **Step 1 :** Enter your **Project Name**
-        <img src={ProjectName} id='ProjectName'/>
-    - **Step 2 :** Select your **Project Type** 
-        <img src={ProjectType} id='ProjectType'/>
-    - **Step 3 :** Enter your **Project Description**
-        <img src={ProjectDes} id='ProjectDes'/>
-    - **Step 4 :** Enter your **Project App Type**
-        <img src={ProjectApptype} id='ProjectAppType'/>
-    - **Step 5 :** Enter your **Project Start Date**
-        <img src={ProjectStart} id='ProjectStart'/>
-    - **Step 6 :** Enter your **Project End Date**
-        <img src={ProjectEnd} id='ProjectEnd'/> -->
-        
-
-<!-- <img src={Project} id='Project'/> -->
+<Video url={demo} controls="true" />
 
 
 
+## 1. In Dashboard, Click a **New Project Button**
+
+## 2. Enter the below details
 
 <div className = "demo" onClick={()=>{driverObj(
     {
@@ -77,19 +50,51 @@ onClick={()=>{driverObj(
     { element: '#ProjectStart', popover: { title: 'Select a Project Start Date', description: '', side : 'right', align : 'center' }},
     { element: '#ProjectEnd', popover: { title: 'Select a Project End Date', description: '', side : 'right', align : 'center' }},
     { element: '#ProjectAddBtn', popover: { title: 'Add Project', description: '', side : 'right', align : 'center' }},
-    { element: '#SampleProject', popover: { title: 'Created successfull', description: '', side : 'right', align : 'center' }},
+    { element: '#SampleProject', popover: { title: 'Project Created successfull', description: '', side : 'right', align : 'center' }},
     ]
   })
   }}>
-        <img src={ProjectName} id='ProjectName'/>
-        <img src={ProjectType} id='ProjectType'/>
-        <img src={ProjectDes} id='ProjectDes'/>
-        <img src={ProjectApptype} id='ProjectAppType'/>
-        <img src={ProjectStart} id='ProjectStart'/>
-        <img src={ProjectEnd} id='ProjectEnd'/>
-        <img src={ProjectAddBtn} id="ProjectAddBtn"/>
+        <img data-toggle="ProjectName" data-placement="top" title="Project Name" src={ProjectName} id='ProjectName'/>
+        <img data-toggle="ProjectType" data-placement="top" title="Project Type" src={ProjectType} id='ProjectType'/>
+        <img data-toggle="ProjectDes" data-placement="top" title="Project Description" src={ProjectDes} id='ProjectDes'/>
+        <img data-toggle="ProjectApptype" data-placement="top" title="Project Apptype" src={ProjectApptype} id='ProjectAppType'/>
+        <img data-toggle="ProjectStart" data-placement="top" title="Project Start Date" src={ProjectStart} id='ProjectStart'/>
+        <img data-toggle="ProjectEnd" data-placement="top" title="Project End Date" src={ProjectEnd} id='ProjectEnd'/>
+        <img data-toggle="ProjectAddBtn" data-placement="top" title="Add New Project" src={ProjectAddBtn} id="ProjectAddBtn"/>
 </div>
 
-Project Created Successfull
+  - Step 1 : Enter your **Project Name**
 
-<img src={SampleProject} id="SampleProject"/>
+  This is a text field where users can enter the name of their project. It allows them to provide a unique identifier or title for their project.
+  - Step 2 : Select your **Project Type**
+    - Web Develop
+    - UI design
+    - Game Design
+
+  This is a dropdown field where users can select the type of their project from a list of predefined options. It helps categorize projects into different types or categories for easier organization
+  - Step 3 : Enter your **Project Description**
+  
+  This is a text area field where users can provide a brief description of their project. It allows them to explain the purpose, objectives, or any other relevant details about the project.
+  - Step 4 : Enter your **Project App Type**
+  - Step 5 : Enter your **Project Start Date**
+
+  This is a date picker field that enables users to select the start date of their project. It helps establish the project's timeline and when it officially begins.
+  - Step 6 : Enter your **Project End Date** 
+
+  This is another date picker field that allows users to select the end date of their project. It helps define the project's duration and when it is expected to be completed.
+
+
+## 3. Project **Created Successfull**
+Finally, there is a **Add New Project** button at the bottom of the form that users can click to submit their project details. Once submitted, the form data can be processed and saved in the backend for further use or displayed on the web application as required.
+
+By providing these form fields, users can input relevant information about their project, such as its name, type, description, start date, and end date. This form structure helps capture the necessary details for creating a project within your web application.
+
+<img data-toggle="SampleProject" data-placement="top" title="New Project" src={SampleProject} id="SampleProject"/>
+
+
+  <SliderPage className="slide-img">
+    <div class="items">
+      <img src={FrontPage}/>
+    </div>
+    <img src={FrontPage2}/>
+  </SliderPage>
