@@ -93,8 +93,5 @@ By providing these form fields, users can input relevant information about their
 
 
   <SliderPage className="slide-img">
-    <div class="items">
-      <img src={FrontPage}/>
-    </div>
-    <img src={FrontPage2}/>
+      <ImageTooltip/>
   </SliderPage>
