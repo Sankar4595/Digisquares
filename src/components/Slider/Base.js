@@ -1,10 +1,46 @@
-import React from "react";
+import React, { useRef } from "react";
 import './index.css';
-import { FullscreenOutlined, RedoOutlined } from '@ant-design/icons';
+import { ArrowsAltOutlined, FullscreenOutlined, RedoOutlined, ShrinkOutlined } from '@ant-design/icons';
+import SliderPage from "./Slide";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import { useState } from "react";
+import { Carousel } from "antd";
 
-const BasePage = ({ children }) => {
+const BasePage = ({ children, title }) => {
+  const CarouselRef = useRef(null);
+  const next = () => {
+    CarouselRef.current.next();
+  }
+  const handle = useFullScreenHandle();
+  const enter = handle.enter;
+  const exit = handle.exit;
+  return <div className="base" onClick={next}>
+    <FullScreen handle={handle}>
+      <div >
+        <BaseTop title={title} exit={exit} enter={enter} />
+        <Carousel effect="fade" ref={CarouselRef} >
+          {children}
+        </Carousel>
+      </div>
+    </FullScreen>
+  </div>
+}
+export default BasePage;
+
+
+export const BaseTop = ({ title, maximizeImage, enter, exit }) => {
+
+  const [show, setShow] = useState(false);
+  const OnclickEnter = () => {
+    setShow(!show)
+    enter()
+  }
+  const OnclickExit = () => {
+    setShow(!show)
+    exit()
+  }
   return (
-    <div className="base">
+    <>
       <div className="top">
         <div className="left">
           <span></span>
@@ -12,21 +48,27 @@ const BasePage = ({ children }) => {
           <span></span>
         </div>
         <div className="center">
-          <input placeholder="search" />
-          <RedoOutlined style={{ cursor: "pointer" }} />
+          <input placeholder={title} disabled />
+          {/* <RedoOutlined style={{ cursor: "pointer" }} /> */}
         </div>
         <div className="right">
-          <FullscreenOutlined />
-
+          {!show ? <FullscreenOutlined onClick={OnclickEnter} /> : <ShrinkOutlined onClick={OnclickExit} />}
         </div>
       </div>
-
-      <div className="children">
-        {children}
-      </div>
-    </div>
-  );
+    </>
+  )
 }
 
-export default BasePage;
+export const FullScreenPage = ({ children, title }) => {
 
+  const handle = useFullScreenHandle();
+  const enter = handle.enter;
+  const exit = handle.exit;
+
+  return <>
+    <FullScreen handle={handle}>
+      <BaseTop title={title} exit={exit} enter={enter} />
+      <SliderPage>{children}</SliderPage>
+    </FullScreen>
+  </>
+}

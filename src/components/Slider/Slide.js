@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Carousel } from 'antd';
-import BasePage from "./Base";
 import './index.css';
-import BounceLoader from "react-spinners/BounceLoader";
-
 
 const SliderPage = ({ children }) => {
-    const onChange = (currentSlide) => {
-        console.log(currentSlide);
-    };
-    return <BasePage>
-        <Carousel afterChange={onChange}>
-            {children}
+    const CarouselRef = useRef(null);
+    const next = () => {
+        CarouselRef.current.next();
+    }
 
-        </Carousel>
-    </BasePage >
+    return <>
+        <NextIcon next={next}>
+            <Carousel effect="fade" ref={CarouselRef} >
+                {children}
+            </Carousel>
+        </NextIcon>
+    </>
 };
 export default SliderPage;
+
+
+export const NextIcon = ({ children, next }) => {
+    return (
+        <div onClick={next}>{children}</div>
+    )
+}
+

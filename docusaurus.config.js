@@ -70,7 +70,7 @@ const config = {
           srcDark: "https://www.digisquares.com/assets/Logo_notag%20(1).webp",
         },
         items: [
-          
+
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
@@ -78,33 +78,33 @@ const config = {
             label: 'Guides',
           },
           {
-            to:"/reference",
+            to: "/reference",
             position: 'left',
             label: 'Reference',
           },
           {
-            to:"/components",
+            to: "/components",
             position: 'left',
             label: 'Components',
           },
           {
-            to:"/integeration",
+            to: "/integeration",
             position: 'left',
             label: 'Intergeration',
           },
           {
-            to:'/community',
+            to: '/community',
             position: 'left',
             label: 'Community',
           },
           {
             to: 'https://app.digisquares.com/login',
-            target : '_blank',
+            target: '_blank',
             position: 'right',
             label: 'Sign In',
           },
           {
-            type : 'search',
+            type: 'search',
             position: 'right'
           }
         ],

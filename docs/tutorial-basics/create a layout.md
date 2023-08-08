@@ -3,7 +3,26 @@ title : "Create a Layout"
 sidebar_position: 3
 ---
 
+
+import SliderPage from "../../src/components/Slider/Slide.js";
+import FrontPage from '../../static/img/fr1.png';
+import FrontPage2 from '../../static/img/fr2.png';
+import BounceLoader from "react-spinners/BounceLoader";
+import ImageTooltip from "../../src/components/Slider/ImageTooltip.js";
+import { Tooltip,Modal } from 'antd';
+import PuffLoader  from "react-spinners/PuffLoader";
+
+import MaximizeIcon from "../../src/components/Slider/MaximizeIcon.js";
+
+import {BaseTop,CarouselMaxBase} from "../../src/components/Slider/Base.js";
+import BasePage from "../../src/components/Slider/Base.js";
+
+
+
 # Create a Web application layout
+
+
+
 
 When designing the layout and content for a web application, it's important to consider the user experience, visual hierarchy, and usability. Here are some key elements to consider:
 
@@ -38,6 +57,9 @@ The footer typically contains secondary links, copyright information, contact de
 Ensure that your web application is responsive and can adapt to different screen sizes and devices. This will provide a consistent and optimized experience for users on desktops, tablets, and mobile devices.
 
 Remember to test the layout and content across different browsers and devices to ensure compatibility and usability. Additionally, seek user feedback and iterate on the design to continually improve the user experience.
+
+
+
 
 
 
